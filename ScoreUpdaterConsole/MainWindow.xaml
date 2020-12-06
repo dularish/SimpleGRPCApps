@@ -1,0 +1,43 @@
+﻿<Window x:Class="ScoreUpdaterConsole.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScoreUpdaterConsole"
+        xmlns:vm="clr-namespace:ScoreUpdaterConsole.ViewModels"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:ScoreboardVM}"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel>
+                <TextBlock Text="Total balls bowled : " />
+                <TextBlock x:Name="_ballsBowledTxt" Text="{Binding BallsBowled}" />
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Total runs scored : " />
+                <TextBlock x:Name="_runsScoredTxt" Text="{Binding RunsScored}" />
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Total wickets : " />
+                <TextBlock x:Name="_wicketsLostTxt" Text="{Binding WicketsLost}" />
+            </WrapPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <WrapPanel>
+                <TextBlock Text="Runs scored off ball : " />
+                <TextBox x:Name="_runsScoredOffBallBox" Text="00" />
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="_wicketLost" Content="Is Wicket Lost ?" IsThreeState="False" />
+            </WrapPanel>
+            <WrapPanel>
+                <Button x:Name="_updateScoresBtn" Content="Update score" Click="_updateScoresBtn_Click" />
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

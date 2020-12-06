@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "SimpleGRPCService";
+
+package cricketscores;
+
+// The greeting service definition.
+service CricketScoreUpdater {
+  // Sends a greeting
+  rpc UpdateBallInfo (BallUpdateRequest) returns (TotalScoreBoard);
+}
+
+message BallUpdateRequest {
+  uint32 runsOffBall = 1;
+  uint32 wickets = 2;
+}
+
+// The response message containing the greetings.
+message TotalScoreBoard {
+  uint32 totalBallsBowled = 1;
+  uint32 runs = 2;
+  uint32 wickets = 3;
+}

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "GreeterServiceForTestingAuthorization";
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayEasyHello (HelloRequest) returns (HelloReply);
+
+  rpc SayAuthorizedHello (HelloRequest) returns (HelloReply);
+
+  rpc SayAdminAuthorizedHello (HelloRequest) returns (HelloReply);
+
+  rpc GetAuthToken (TokenRequest) returns (TokenResponse);
+}
+
+message TokenRequest{
+	string username = 1;
+	string password = 2;
+}
+
+message TokenResponse{
+	bool result = 1;
+	google.protobuf.Timestamp expiration = 2;
+	string tokenString = 3;
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}
