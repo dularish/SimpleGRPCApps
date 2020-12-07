@@ -1,0 +1,11 @@
+1. Create three certificates as per Powershell script
+
+2. Have SSL cert in the server just like in the project  "GreeterServiceForTestingTLSCertificates"  , and self cert file in the client just like in the project "GreeterClientForTestingTLSCertificates"
+
+3. search "manager user certficates" in the start menu , and add the created root certficate to trusted certficates
+
+4. Change Program.cs, Startup.cs in the server just like in the project "GreeterServiceForTestingTLSCertificates".
+
+5. Change Client creating just like in the project "GreeterClientForTestingTLSCertificates"
+
+6. Use https address for TLS communication

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GreeterClientForTestingTLSCertificates.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CertFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GreeterTest1SelfCert.pfx</Value>
+    </Setting>
+    <Setting Name="CertPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">justTestPassword</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
