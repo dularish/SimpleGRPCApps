@@ -31,7 +31,10 @@ namespace GreeterServiceForTestingTLSCertificates
                         var cert = new X509Certificate2(config["TLSCertificates:CertFileName"], config["TLSCertificates:CertPassword"]);
                         kestralOptions.ConfigureHttpsDefaults(configureOptions =>
                         {
-                            configureOptions.ClientCertificateMode = Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.AllowCertificate;//Why allow certificate doesn't make https work with no certificate from client
+                            configureOptions.ClientCertificateMode = 
+                                Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.RequireCertificate;
+                                //Configures HTTP/2 handshake params. Client certificate is not required in all kinds of applications, think of a bank website-browser interaction.
+
                             configureOptions.CheckCertificateRevocation = false;
                             configureOptions.ServerCertificate = cert;
                         });

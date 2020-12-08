@@ -40,7 +40,7 @@ namespace GreeterClientForTestingTLSCertificates
                     var cert = new X509Certificate2(Settings.Default.CertFileName, Settings.Default.CertPassword);
 
                     var httpClientHandler = new HttpClientHandler();
-                    httpClientHandler.ClientCertificates.Add(cert);//TLS HTTPS connection works without even this line
+                    httpClientHandler.ClientCertificates.Add(cert);//TLS HTTPS connection can work without even this line, but it depends more on how server is configured
                                                                     //A certificate in the client side is not necessary if the client computer is not
                                                                         //necessary to be authenticated, applicable for cases such as a bank website, browser
                                                                         //interaction. browser has to know for sure if the server it is interacting with is a valid certificate authenticated server,
