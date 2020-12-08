@@ -40,7 +40,13 @@ namespace GreeterClientForTestingTLSCertificates
                     var cert = new X509Certificate2(Settings.Default.CertFileName, Settings.Default.CertPassword);
 
                     var httpClientHandler = new HttpClientHandler();
-                    httpClientHandler.ClientCertificates.Add(cert);//TLS HTTPS connection works without even this line, have to know more about this
+                    httpClientHandler.ClientCertificates.Add(cert);//TLS HTTPS connection works without even this line
+                                                                    //A certificate in the client side is not necessary if the client computer is not
+                                                                        //necessary to be authenticated, applicable for cases such as a bank website, browser
+                                                                        //interaction. browser has to know for sure if the server it is interacting with is a valid certificate authenticated server,
+                                                                        //but server doesn't need to know about the client browser machine.
+                                                                        //Our WPF application too doesn't need a certificate, but this is 
+                                                                        //just for demonstration purpose.
 
                     var httpClient = new HttpClient(httpClientHandler);
 
